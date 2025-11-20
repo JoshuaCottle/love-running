@@ -48,10 +48,16 @@ body {
 
 /* header */
 header {
-    background-color: lightgray;
-    h1 {
-        font-family: "Oswald", sans-serif;
-    }
+    background-color: #ffffff;
+    padding: 0 1rem;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    box-shadow: 0 2px rgb(#3a3a3a);
+}
+
+h1 {
+    font-family: "Oswald", sans-serif;
 }
 /* main content */
 main {
