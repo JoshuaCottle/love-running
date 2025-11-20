@@ -49,6 +49,9 @@ body {
 /* header */
 header {
     background-color: lightgray;
+    h1 {
+        font-family: "Oswald", sans-serif;
+    }
 }
 /* main content */
 main {
