@@ -1,3 +1,34 @@
+/* fonts */
+.oswald-headline {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 /* asterisk selector to apply styles to all elements */
 * {
     padding: 0;
@@ -12,15 +43,16 @@ body {
     flex-direction: column;
     /* generic body styles */
     color: #3a3a3a;
+    font-family: "Lato", sans-serif;
 }
 
 /* header */
 header {
-    background-color: lightblue;
+    background-color: lightgray;
 }
 /* main content */
 main {
-    background-color: red;
+    background-color: blue;
     /* Make main take up any surplus space space */
     flex: 1 0 auto;
 }
