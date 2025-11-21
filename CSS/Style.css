@@ -26,6 +26,9 @@ h3 {
     letter-spacing: 2px;
     color: #252525;
 }
+.hidden-heading {
+    display: none;
+}
 
 /* Header */
 header {
@@ -95,11 +98,9 @@ main {
 #hero {
     height: 600px;
     width: 100%;
-    /* correct relative path from CSS/Style.css to Assets/images/hero-image.webp */
     background: url("../Assets/images/hero-image.webp") no-repeat center
         center/cover;
-    background-size: cover;
-    position: relative; /* allow absolutely positioned cover-text to sit inside hero */
+    position: relative;
 }
 
 #cover-text {
@@ -147,20 +148,15 @@ main {
 }
 
 #circle-cover-bg {
-    /* correct relative path from CSS file to image in Assets/images */
-    background-image: url("../Assets/images/reasons-image.webp");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+    background: url("../Assets/images/reasons-image.webp") no-repeat top center /
+        cover;
     height: 90vw;
     width: 90vw;
-    margin: 0 auto 20px; /* center horizontally and add bottom gap */
+    margin-bottom: 20px;
     /* Makes the square image into a circle */
     border-radius: 50%;
     max-width: 300px;
     max-height: 300px;
-    display: block;
-    overflow: hidden; /* ensure no visual bleed */
 }
 
 #benefits-image {
@@ -169,13 +165,33 @@ main {
     justify-content: center;
 }
 
-/* Footer */
-footer {
-    border-top: 1px solid #3a3a3a;
-    padding-top: 18px;
-    background: transparent;
+/* Meetup Times section */
+#times {
+    background: url("../Assets/images/dublin-city.webp") no-repeat center/cover;
+    /* Handles responsivity without the need for a media query */
+    display: flex;
+    flex-wrap: wrap;
 }
 
+#times div {
+    color: #fafafa;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    text-align: center;
+    /* This will not wrap on screens of less than 400px wide.
+    Each div will expand to fill the available space on its row */
+    flex-basis: 200px;
+    flex-grow: 1;
+    /* Creates a grid of meetup time divs over the background image */
+    border: 2px solid white;
+}
+
+#times h3 {
+    /* Override the heading colour set in general styles */
+    color: #fafafa;
+}
+
+/* Footer */
 #social-networks {
     text-align: center;
     padding: 20px 0;
@@ -190,6 +206,100 @@ footer {
     color: #3a3a3a;
 }
 
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+    /* Header */
+    nav {
+        display: block;
+        position: relative;
+        box-shadow: none;
+        width: fit-content;
+        padding-right: 1rem;
+    }
+
+    #menu {
+        display: flex;
+    }
+
+    #menu > li {
+        padding-left: 1rem;
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    #logo {
+        font-size: 280%;
+        line-height: 75px;
+        margin: 0 0.5rem;
+    }
+
+    /* Main content */
+    main {
+        /* Push main content down to accommodate larger header */
+        margin-top: 79px;
+    }
+
+    /* Hero */
+    #cover-text {
+        width: 300px;
+        right: 50px;
+    }
+
+    /* Reasons section */
+    #benefits-physical,
+    #benefits-mental {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #benefits-physical > div,
+    #benefits-mental > div {
+        width: 75%;
+    }
+
+    #benefits-mental > div {
+        text-align: end;
+        align-self: flex-end;
+    }
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #menu a:hover {
+        border-bottom: 1px solid #3a3a3a;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    /* Reasons section */
+    #benefits {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #benefits > div {
+        flex: 1;
+    }
+
+    #benefits-image {
+        order: 0;
+    }
+
+    #benefits-mental {
+        order: 1;
+    }
+
+    #benefits-mental > div {
+        align-self: flex-start;
+    }
+
+    #benefits-physical > div {
+        align-self: flex-end;
+    }
+}
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
     /* Header */
@@ -275,29 +385,19 @@ footer {
         flex: 1;
     }
 
-    /* Arrange columns: physical (left), image (center), mental (right) */
-    #benefits-physical {
+    #benefits-image {
         order: 0;
     }
-    #benefits-image {
-        order: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+
     #benefits-mental {
-        order: 2;
+        order: 1;
     }
 
-    /* Make the text blocks narrower and align them to their sides */
-    #benefits-physical > div {
-        width: 75%;
-        align-self: flex-start;
-        text-align: left;
-    }
     #benefits-mental > div {
-        width: 75%;
+        align-self: flex-start;
+    }
+
+    #benefits-physical > div {
         align-self: flex-end;
-        text-align: right;
     }
 }
