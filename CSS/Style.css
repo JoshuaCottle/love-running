@@ -87,11 +87,17 @@ nav {
 
 /* Main content */
 main {
-    background-color: lightblue;
     /* Make main element take up any surplus space to push footer down */
     flex: 1 0 auto;
-    /* ensure main is pushed below the fixed header on small screens */
-    margin-top: 64px;
+    margin-top: 47px;
+}
+
+/* Hero section */
+#hero {
+    height: 600px;
+    width: 100%;
+    background: url("Assets/images/hero-image.webp") no-repeat center
+        center/cover;
 }
 
 /* Footer */
