@@ -146,6 +146,29 @@ main {
     margin: 5px 0;
 }
 
+#circle-cover-bg {
+    /* correct relative path from CSS file to image in Assets/images */
+    background-image: url("../Assets/images/reasons-image.webp");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    height: 90vw;
+    width: 90vw;
+    margin: 0 auto 20px; /* center horizontally and add bottom gap */
+    /* Makes the square image into a circle */
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+    display: block;
+    overflow: hidden; /* ensure no visual bleed */
+}
+
+#benefits-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Footer */
 footer {
     border-top: 1px solid #3a3a3a;
@@ -213,5 +236,68 @@ footer {
 @media screen and (min-width: 992px) {
     #menu a:hover {
         border-bottom: 1px solid #3a3a3a;
+    }
+
+    /* Reasons section */
+    #benefits-physical,
+    #benefits-mental {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #benefits-physical > div,
+    #benefits-mental > div {
+        width: 75%;
+    }
+
+    #benefits-mental > div {
+        text-align: end;
+        align-self: flex-end;
+    }
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #menu a:hover {
+        border-bottom: 1px solid #3a3a3a;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    /* Reasons section */
+    #benefits {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #benefits > div {
+        flex: 1;
+    }
+
+    /* Arrange columns: physical (left), image (center), mental (right) */
+    #benefits-physical {
+        order: 0;
+    }
+    #benefits-image {
+        order: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #benefits-mental {
+        order: 2;
+    }
+
+    /* Make the text blocks narrower and align them to their sides */
+    #benefits-physical > div {
+        width: 75%;
+        align-self: flex-start;
+        text-align: left;
+    }
+    #benefits-mental > div {
+        width: 75%;
+        align-self: flex-end;
+        text-align: right;
     }
 }
